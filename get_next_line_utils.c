@@ -6,7 +6,7 @@
 /*   By: maambuhl <marcambuehl4@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 15:35:48 by maambuhl          #+#    #+#             */
-/*   Updated: 2024/10/11 15:56:02 by maambuhl         ###   LAUSANNE.ch       */
+/*   Updated: 2024/10/12 01:22:41 by maambuhl         ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ char	*ft_getrest(char *s)
 	while (s[i])
 		rest[j++] = s[i++];
 	rest[j] = 0;
-	free(s);
 	return (rest);
 }
 
@@ -142,6 +141,7 @@ char	*ft_getline(char *s)
 		line[j] = s[j];
 		j++;
 	}
+	line[j] = 0;
 	return (line);
 }
 
