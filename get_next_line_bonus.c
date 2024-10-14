@@ -6,7 +6,7 @@
 /*   By: maambuhl <marcambuehl4@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 15:54:37 by maambuhl          #+#    #+#             */
-/*   Updated: 2024/10/14 13:04:45 by maambuhl         ###   LAUSANNE.ch       */
+/*   Updated: 2024/10/14 15:17:55 by maambuhl         ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,47 +87,47 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-int	main(void)
-{
-	int		fd;
-	char	*str;
-
-	fd = open("files/alternate_line_nl_no_nl", O_RDONLY);
-	// fd = -3;
-
-	// str = get_next_line(fd);
-	// printf("%s", str);
-	// free(str);
-	//
-	// str = get_next_line(fd);
-	// printf("%s", str);
-	// free(str);
-	//
-	// str = get_next_line(fd);
-	// printf("%s", str);
-	// free(str);
-	//
-	// str = get_next_line(fd);
-	// printf("%s", str);
-	// free(str);
-	//
-	// str = get_next_line(fd);
-	// printf("%s", str);
-	// free(str);
-	//
-	// str = get_next_line(fd);
-	// printf("%s", str);
-	// free(str);
-	printf("%s", get_next_line(fd));
-	printf("%s", get_next_line(fd));
-	printf("%s", get_next_line(fd));
-	printf("%s", get_next_line(fd));
-	printf("%s", get_next_line(fd));
-	printf("%s", get_next_line(fd));
-	printf("%s", get_next_line(fd));
-	printf("%s", get_next_line(fd));
-	printf("%s", get_next_line(fd));
-	printf("%s", get_next_line(fd));
-	printf("%s", get_next_line(fd));
-	return (0);
-}
+// int	main(void)
+// {
+// 	int		fd;
+// 	char	*str;
+//
+// 	fd = open("files/alternate_line_nl_no_nl", O_RDONLY);
+// 	// fd = -3;
+//
+// 	// str = get_next_line(fd);
+// 	// printf("%s", str);
+// 	// free(str);
+// 	//
+// 	// str = get_next_line(fd);
+// 	// printf("%s", str);
+// 	// free(str);
+// 	//
+// 	// str = get_next_line(fd);
+// 	// printf("%s", str);
+// 	// free(str);
+// 	//
+// 	// str = get_next_line(fd);
+// 	// printf("%s", str);
+// 	// free(str);
+// 	//
+// 	// str = get_next_line(fd);
+// 	// printf("%s", str);
+// 	// free(str);
+// 	//
+// 	// str = get_next_line(fd);
+// 	// printf("%s", str);
+// 	// free(str);
+// 	printf("%s", get_next_line(fd));
+// 	printf("%s", get_next_line(fd));
+// 	printf("%s", get_next_line(fd));
+// 	printf("%s", get_next_line(fd));
+// 	printf("%s", get_next_line(fd));
+// 	printf("%s", get_next_line(fd));
+// 	printf("%s", get_next_line(fd));
+// 	printf("%s", get_next_line(fd));
+// 	printf("%s", get_next_line(fd));
+// 	printf("%s", get_next_line(fd));
+// 	printf("%s", get_next_line(fd));
+// 	return (0);
+// }
