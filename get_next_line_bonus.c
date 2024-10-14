@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maambuhl <marcambuehl4@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 15:54:37 by maambuhl          #+#    #+#             */
-/*   Updated: 2024/10/14 11:00:45 by maambuhl         ###   LAUSANNE.ch       */
+/*   Updated: 2024/10/14 13:04:45 by maambuhl         ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,10 @@ char	*read_file(int fd, char *conca)
 	buff = ft_calloc_char(BUFFER_SIZE + 1);
 	if (!buff)
 		return (ft_freer(conca, 0));
-	if (fd < 0 || read(fd, buff, 0) < 0)
-		return (ft_freer(conca, buff));
 	if (!conca)
 		conca = ft_calloc_char(1);
+	if (read(fd, buff, 0) < 0)
+		return (ft_freer(conca, buff));
 	r = 1;
 	while (r)
 	{
@@ -64,71 +64,70 @@ char	*read_file(int fd, char *conca)
 
 char	*get_next_line(int fd)
 {
-	static char	*conca;
+	static char	*conca[1024];
 	char		*line;
 	char		*rest;
 
-	conca = read_file(fd, conca);
-	if (!conca)
+	if (fd < 0)
 		return (0);
-	line = ft_getline(conca);
+	conca[fd] = read_file(fd, conca[fd]);
+	if (!conca[fd])
+		return (0);
+	line = ft_getline(conca[fd]);
 	if (!line)
 	{
-		free(conca);
+		free(conca[fd]);
 		return (0);
 	}
-	rest = ft_getrest(conca);
-	free(conca);
-	conca = rest;
+	rest = ft_getrest(conca[fd]);
+	free(conca[fd]);
+	conca[fd] = rest;
 	if (!*line)
-	{
-		free(rest);
-		free(line);
-		return (0);
-	}
+		return (ft_freer(rest, line));
 	return (line);
 }
 
-// int	main(void)
-// {
-// 	int		fd;
-// 	char	*str;
-//
-// 	fd = open("read_error.txt", O_RDONLY);
-//
-// 	// str = get_next_line(fd);
-// 	// printf("%s", str);
-// 	// free(str);
-// 	//
-// 	// str = get_next_line(fd);
-// 	// printf("%s", str);
-// 	// free(str);
-// 	//
-// 	// str = get_next_line(fd);
-// 	// printf("%s", str);
-// 	// free(str);
-// 	//
-// 	// str = get_next_line(fd);
-// 	// printf("%s", str);
-// 	// free(str);
-// 	//
-// 	// str = get_next_line(fd);
-// 	// printf("%s", str);
-// 	// free(str);
-// 	//
-// 	// str = get_next_line(fd);
-// 	// printf("%s", str);
-// 	// free(str);
-// 	printf("%s", get_next_line(fd));
-// 	printf("%s", get_next_line(fd));
-// 	printf("%s", get_next_line(fd));
-// 	printf("%s", get_next_line(fd));
-// 	printf("%s", get_next_line(fd));
-// 	printf("%s", get_next_line(fd));
-// 	printf("%s", get_next_line(fd));
-// 	printf("%s", get_next_line(fd));
-// 	printf("%s", get_next_line(fd));
-// 	printf("%s", get_next_line(fd));
-// 	printf("%s", get_next_line(fd));
-// 	return (0);
-// }
+int	main(void)
+{
+	int		fd;
+	char	*str;
+
+	fd = open("files/alternate_line_nl_no_nl", O_RDONLY);
+	// fd = -3;
+
+	// str = get_next_line(fd);
+	// printf("%s", str);
+	// free(str);
+	//
+	// str = get_next_line(fd);
+	// printf("%s", str);
+	// free(str);
+	//
+	// str = get_next_line(fd);
+	// printf("%s", str);
+	// free(str);
+	//
+	// str = get_next_line(fd);
+	// printf("%s", str);
+	// free(str);
+	//
+	// str = get_next_line(fd);
+	// printf("%s", str);
+	// free(str);
+	//
+	// str = get_next_line(fd);
+	// printf("%s", str);
+	// free(str);
+	printf("%s", get_next_line(fd));
+	printf("%s", get_next_line(fd));
+	printf("%s", get_next_line(fd));
+	printf("%s", get_next_line(fd));
+	printf("%s", get_next_line(fd));
+	printf("%s", get_next_line(fd));
+	printf("%s", get_next_line(fd));
+	printf("%s", get_next_line(fd));
+	printf("%s", get_next_line(fd));
+	printf("%s", get_next_line(fd));
+	printf("%s", get_next_line(fd));
+	return (0);
+}
