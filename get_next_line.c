@@ -6,7 +6,7 @@
 /*   By: maambuhl <marcambuehl4@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 15:54:37 by maambuhl          #+#    #+#             */
-/*   Updated: 2024/10/14 11:00:45 by maambuhl         ###   LAUSANNE.ch       */
+/*   Updated: 2024/10/18 10:14:03 by maambuhl         ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,19 +73,12 @@ char	*get_next_line(int fd)
 		return (0);
 	line = ft_getline(conca);
 	if (!line)
-	{
-		free(conca);
-		return (0);
-	}
+		return (ft_freer(conca, 0));
 	rest = ft_getrest(conca);
 	free(conca);
 	conca = rest;
 	if (!*line)
-	{
-		free(rest);
-		free(line);
-		return (0);
-	}
+		return (ft_freer(rest, line));
 	return (line);
 }
 
