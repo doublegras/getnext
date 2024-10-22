@@ -6,13 +6,12 @@
 /*   By: maambuhl <marcambuehl4@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 15:54:37 by maambuhl          #+#    #+#             */
-/*   Updated: 2024/10/18 10:14:03 by maambuhl         ###   LAUSANNE.ch       */
+/*   Updated: 2024/10/18 10:19:36 by maambuhl         ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 #include <stdio.h>
-#include <strings.h>
 
 int	ft_slineret(char *s)
 {

@@ -6,13 +6,12 @@
 /*   By: maambuhl <marcambuehl4@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 15:54:37 by maambuhl          #+#    #+#             */
-/*   Updated: 2024/10/14 15:17:55 by maambuhl         ###   LAUSANNE.ch       */
+/*   Updated: 2024/10/22 10:55:37 by maambuhl         ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 #include <stdio.h>
-#include <strings.h>
 
 int	ft_slineret(char *s)
 {
@@ -64,7 +63,7 @@ char	*read_file(int fd, char *conca)
 
 char	*get_next_line(int fd)
 {
-	static char	*conca[1024];
+	static char	*conca[FD_NB];
 	char		*line;
 	char		*rest;
 
@@ -75,10 +74,7 @@ char	*get_next_line(int fd)
 		return (0);
 	line = ft_getline(conca[fd]);
 	if (!line)
-	{
-		free(conca[fd]);
-		return (0);
-	}
+		return (ft_freer(conca[fd], 0));
 	rest = ft_getrest(conca[fd]);
 	free(conca[fd]);
 	conca[fd] = rest;
@@ -92,7 +88,7 @@ char	*get_next_line(int fd)
 // 	int		fd;
 // 	char	*str;
 //
-// 	fd = open("files/alternate_line_nl_no_nl", O_RDONLY);
+// 	fd = open("", O_RDONLY);
 // 	// fd = -3;
 //
 // 	// str = get_next_line(fd);
